@@ -1,14 +1,7 @@
-import React, { Component } from 'react';
-import './App.scss';
-import { MoviesList } from './components/MoviesList';
-import moviesFromServer from './api/movies.json';
+import React from 'react';
+import { Calendar } from './components/Calendar/Calendar';
+import './App.css';
 
-export class App extends Component {
-  state = {};
-
-  render() {
-    return (
-
-    );
-  }
-}
+export const App = () => (
+  <Calendar />
+);
