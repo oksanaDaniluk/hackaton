@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AddNote } from './components/AddContent/AddNode/AddNote';
 import { AddTodo } from './components/TaskList/AddTodo';
 import { Calendar } from './components/Calendar/Calendar';
 import './App.css';
@@ -18,6 +19,7 @@ export class App extends Component {
     return (
       <div className="App">
         <Calendar />
+        <AddNote />
         {
           this.state.isTaskCreator
             ? (
