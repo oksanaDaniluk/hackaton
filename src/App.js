@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import './App.scss';
 import { AddTodo } from './components/TaskList/AddTodo';
+import { Calendar } from './components/Calendar/Calendar';
+import './App.css';
 
 export class App extends Component {
   state = {
@@ -16,6 +17,7 @@ export class App extends Component {
   render() {
     return (
       <div className="App">
+        <Calendar />
         {
           this.state.isTaskCreator
             ? (
