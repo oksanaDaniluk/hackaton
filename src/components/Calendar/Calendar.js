@@ -91,7 +91,11 @@ export class Calendar extends Component {
   SelectList = (props) => {
     const popup = props.data.map(data => (
       <div key={data}>
-        <button type="button" onClick={evt => this.onSelectChange(evt, data)}>
+        <button
+          className="option-month"
+          type="button"
+          onClick={evt => this.onSelectChange(evt, data)}
+        >
           {data}
         </button>
       </div>
@@ -114,7 +118,7 @@ export class Calendar extends Component {
   MonthNav = () => (
     <button
       type="button"
-      className="label-month"
+      className="button-month"
       onClick={(evt) => {
         this.onChangeMonth(evt, this.month());
       }}
@@ -171,12 +175,13 @@ export class Calendar extends Component {
         />
       )
       : (
-        <span
-          className="label-year"
+        <button
+          type="button"
+          className="button-year"
           onDoubleClick={() => (this.showYearEditor())}
         >
           {this.year()}
-        </span>
+        </button>
       )
   )
 
@@ -251,18 +256,16 @@ export class Calendar extends Component {
                 <this.YearNav />
               </td>
               <td colSpan="2" className="nav-month">
-                <span
-                  className="prev"
+                <button
+                  type="button"
+                  className="button-prev"
                   onClick={() => this.prevMonth()}
-                >
-                  prev
-                </span>
-                <span
-                  className="next"
+                />
+                <button
+                  type="button"
+                  className="button-next"
                   onClick={() => this.nextMonth()}
-                >
-                  next
-                </span>
+                />
               </td>
             </tr>
           </thead>

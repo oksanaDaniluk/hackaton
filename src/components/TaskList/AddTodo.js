@@ -76,25 +76,37 @@ export class AddTodo extends Component {
         <label>
           <input
             type="text"
+            className="todo-title"
             onChange={this.handleInputTitleChange}
             value={taskTitle}
             placeholder="Write a task here"
           />
         </label>
         <label>
-          <input
+          <textarea
             type="text"
+            className="todo-text"
             onChange={this.handleInputDescriptionChange}
             value={taskDescription}
             placeholder="Write a description"
           />
         </label>
-        <button disabled={!taskTitle.trim()} type="submit">
+        <div className="button-container">
+          <button
+            className="button-save"
+            disabled={!taskTitle.trim()}
+            type="submit"
+          >
           Save
-        </button>
-        <button type="button" onClick={this.handleCanselButton}>
+          </button>
+          <button
+            className="button-cancel"
+            type="button"
+            onClick={this.handleCanselButton}
+          >
           Cansel
-        </button>
+          </button>
+        </div>
         {(todos.length !== 0)
           && (
             <TaskList

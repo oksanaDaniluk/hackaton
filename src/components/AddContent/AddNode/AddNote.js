@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './AddNote.scss';
 import { NoteList } from './NoteList';
+import './AddNote.css';
 
 export class AddNote extends Component {
   state = {
