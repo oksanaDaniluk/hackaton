@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 import React from 'react';
 import PropTypes from 'prop-types';
 /* import 'bootstrap'; */
@@ -9,6 +10,7 @@ export const TaskList = ({ todos }) => (
         <th>Task ID</th>
         <th>Task</th>
         <th>Task description </th>
+        <th>Data</th>
       </tr>
     </thead>
     <tbody>
@@ -17,11 +19,7 @@ export const TaskList = ({ todos }) => (
           <th>{todo.taskId}</th>
           <th>{todo.taskTitle}</th>
           <th>{todo.taskDescription}</th>
-          <button
-            type="button"
-          >
-            EDIT
-          </button>
+          <th>{`${todo.dataTodo['_d']}`}</th>
         </tr>
       ))}
     </tbody>

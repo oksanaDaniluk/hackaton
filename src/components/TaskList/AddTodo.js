@@ -1,20 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { TaskList } from './TaskList';
-/* import PropTypes from 'prop-types'; */
+
 /* import todos from '../../api/todos'; */
 
 export class AddTodo extends Component {
   state = {
-    todos: [],
     taskId: 1,
     taskTitle: '',
     taskDescription: '',
-  }
-
-  addTodo = (todo) => {
-    this.setState(prevState => ({
-      todos: [...prevState.todos, { ...todo }],
-    }));
   }
 
   handleSubmitForm = (event) => {
@@ -46,7 +40,7 @@ export class AddTodo extends Component {
     event.preventDefault();
     const { taskTitle, taskId, taskDescription } = this.state;
 
-    this.addTodo({
+    this.props.addTodo({
       taskId,
       taskTitle,
       taskDescription,
@@ -67,7 +61,8 @@ export class AddTodo extends Component {
   }
 
   render() {
-    const { todos, taskTitle, taskDescription } = this.state;
+    const { taskTitle, taskDescription } = this.state;
+    const { todos } = this.props;
 
     return (
       <form
@@ -107,15 +102,12 @@ export class AddTodo extends Component {
   }
 }
 
-/* AddTodo.propTypes = {
+AddTodo.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
       taskId: PropTypes.any,
       taskTitle: PropTypes.string,
-      /* descripshion: PropTypes.string,
-      status: PropTypes.string,
-      dateAdded: PropTypes.any,
-      dateEnded: PropTypes.any,
     }).isRequired,
   ).isRequired,
-}; */
+  addTodo: PropTypes.func.isRequired,
+};
