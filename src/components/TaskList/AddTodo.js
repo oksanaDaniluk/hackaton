@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { TaskList } from './TaskList';
 
-/* import todos from '../../api/todos'; */
-
 export class AddTodo extends Component {
   state = {
     taskId: 1,
@@ -45,7 +43,6 @@ export class AddTodo extends Component {
       taskTitle,
       taskDescription,
     });
-
     this.setState({
       taskId: taskId + 1,
       taskTitle: '',
@@ -113,7 +110,6 @@ export class AddTodo extends Component {
     );
   }
 }
-
 AddTodo.propTypes = {
   todos: PropTypes.arrayOf(
     PropTypes.shape({
