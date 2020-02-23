@@ -12,12 +12,11 @@ tr {
 }
 
 .calendar-container {
-   border: 1px solid #b9cced;
-   position: relative;
-   width: 280px;
-   border-radius: 5px;
-   margin-top: 10px;
-   margin-bottom: 10px;
+  position: relative;
+  width: 280px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 .calendar {
@@ -61,7 +60,7 @@ tr {
 .button-next::before,
 .button-prev::before {
   position: absolute;
-  content: '';
+  content: "";
   top: 5px;
   transform: translateY(-50%);
   left: 10px;
@@ -121,4 +120,26 @@ tr {
   background-color: inherit;
   cursor: pointer;
   color: #6e5773;
+}
+
+@media (min-width: 768px) {
+  .calendar-container {
+    display: flex;
+    width: 720px;
+    justify-content: space-between;
+  }
+  .calendar {
+    width: 280px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .calendar-container {
+    width: 1040px;
+  }
+  .todo-wrapper {
+    display: flex;
+    width: 720px;
+    justify-content: space-between;
+  }
 }
