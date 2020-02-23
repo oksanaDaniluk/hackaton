@@ -15,6 +15,7 @@ export class Calendar extends Component {
     noteList: [],
     todos: [],
     today: moment().format('D'),
+    month: moment().format('MMMM'),
     dateContext: moment(),
     showMonthPopup: false,
     isTaskCreator: false,
