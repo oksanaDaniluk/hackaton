@@ -28,7 +28,6 @@ export const TaskList = ({ todos }) => (
     </tbody>
   </table>
 );
-
 TaskList.propTypes = {
   todos: PropTypes.arrayOf().isRequired,
 };

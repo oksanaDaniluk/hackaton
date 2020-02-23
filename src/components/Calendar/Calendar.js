@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-array-index-key */
@@ -15,7 +14,6 @@ export class Calendar extends Component {
     noteList: [],
     todos: [],
     today: moment().format('D'),
-    month: moment().format('MMMM'),
     dateContext: moment(),
     showMonthPopup: false,
     isTaskCreator: false,
@@ -62,7 +60,6 @@ export class Calendar extends Component {
     let dateContext = Object.assign({}, this.state.dateContext);
 
     dateContext = moment(dateContext).set('month', monthNow);
-
     this.setState({
       dateContext,
     });
@@ -76,7 +73,6 @@ export class Calendar extends Component {
     this.setState({
       dateContext,
     });
-
     // eslint-disable-next-line react/prop-types
     this.props.onNextMonth && this.props.onNextMonth();
   }
@@ -86,11 +82,9 @@ export class Calendar extends Component {
     let dateContext = Object.assign({}, this.state.dateContext);
 
     dateContext = moment(dateContext).subtract(1, 'month');
-
     this.setState({
       dateContext,
     });
-
     // eslint-disable-next-line react/prop-types
     this.props.onPrevMonth && this.props.onPrevMonth();
   }
@@ -230,7 +224,6 @@ export class Calendar extends Component {
       <td key={day} className="week-day">{day}</td>
     ));
     const { todos } = this.state;
-
     const blanks = [];
 
     for (let i = 0; i < this.firstDayOfMonth(); i++) {
@@ -274,7 +267,6 @@ export class Calendar extends Component {
         rows.push(insertRow);
       }
     });
-
     const trElems = rows.map((d, i) => (
       <tr key={i * 100}>
         {d}
@@ -312,26 +304,27 @@ export class Calendar extends Component {
             {trElems}
           </tbody>
         </table>
-
-        <AddNote
-          noteList={this.state.noteList}
-          addNote={this.addNote}
-        />
-        {
-          this.state.isTaskCreator
-            ? (
-              <AddTodo todos={todos} addTodo={this.addTodo} />
-            )
-            : (
-              <button
-                className="button button__task-creator"
-                type="button"
-                onClick={this.loadTaskCreator}
-              >
+        <div>
+          <AddNote
+            noteList={this.state.noteList}
+            addNote={this.addNote}
+          />
+          {
+            this.state.isTaskCreator
+              ? (
+                <AddTodo todos={todos} addTodo={this.addTodo} />
+              )
+              : (
+                <button
+                  className="button button__task-creator"
+                  type="button"
+                  onClick={this.loadTaskCreator}
+                >
                 Add task
-              </button>
-            )
-        }
+                </button>
+              )
+          }
+        </div>
       </div>
     );
   }
