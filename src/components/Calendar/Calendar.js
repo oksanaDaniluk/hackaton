@@ -8,11 +8,13 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import './Calendar.css';
 import { AddNote } from '../AddContent/AddNode/AddNote';
+import { AddTodo } from '../TaskList/AddTodo';
 
 export class Calendar extends Component {
   state = {
     noteList: [],
     todos: [],
+    today: moment().format('D'),
     dateContext: moment(),
     showMonthPopup: false,
     isTaskCreator: false,
@@ -197,7 +199,10 @@ export class Calendar extends Component {
 
   onDayClick = (evt, day) => {
     // eslint-disable-next-line react/prop-types
-    this.props.onDayClick && this.props.onDayClick(evt, day);
+    // this.props.onDayClick && this.props.onDayClick(evt, day);
+    this.setState({
+      today: day,
+    });
   }
 
   addNote = (note) => {
@@ -214,6 +219,7 @@ export class Calendar extends Component {
       todos: [...prevState.todos, {
         ...todo,
         dataTodo: prevState.dateContext,
+        day: prevState.today,
       }],
     }));
   }
