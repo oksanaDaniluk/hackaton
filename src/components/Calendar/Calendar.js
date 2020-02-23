@@ -17,6 +17,7 @@ export class Calendar extends Component {
     dateContext: moment(),
     showMonthPopup: false,
     isTaskCreator: false,
+    today: moment().format('D'),
   }
 
   weekdays = moment.weekdays();
@@ -199,6 +200,9 @@ export class Calendar extends Component {
   onDayClick = (evt, day) => {
     // eslint-disable-next-line react/prop-types
     this.props.onDayClick && this.props.onDayClick(evt, day);
+    this.setState({
+      today: day,
+    });
   }
 
   addNote = (note) => {
@@ -215,6 +219,7 @@ export class Calendar extends Component {
       todos: [...prevState.todos, {
         ...todo,
         dataTodo: prevState.dateContext,
+        today: prevState.today,
       }],
     }));
   }

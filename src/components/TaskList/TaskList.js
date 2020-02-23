@@ -18,7 +18,11 @@ export const TaskList = ({ todos }) => (
           <th>{todo.taskId}</th>
           <th>{todo.taskTitle}</th>
           <th>{todo.taskDescription}</th>
-          <th>{`${todo.dataTodo['_d']}`}</th>
+          <th>
+            {`${todo.dataTodo['_d']}`.substring(0, 4)}
+            {todo.day}
+            {`${todo.dataTodo['_d']}`.substring(10, 15)}
+          </th>
         </tr>
       ))}
     </tbody>
