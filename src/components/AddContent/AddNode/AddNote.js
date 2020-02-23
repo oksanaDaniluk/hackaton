@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import './AddNote.scss';
 import PropTypes from 'prop-types';
 import { NoteList } from './NoteList';
+import './AddNote.css';
 
 export class AddNote extends Component {
   constructor(props) {

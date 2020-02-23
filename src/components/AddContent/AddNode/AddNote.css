@@ -1,0 +1,62 @@
+.add-note {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.add-note__input--title,
+.add-note__input--text {
+  display: block;
+  width: 280px;
+  border-radius: 5px;
+  border: 1px solid #b9cced;
+  margin: 0 auto;
+  margin-top: 10px;
+  outline: none;
+  padding: 5px;
+}
+
+.add-note__input--text {
+  height: 100px;
+}
+
+.add-note__button--add,
+.add-note__button--save {
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  margin: 20px 0;
+  color: #6e5773;
+  font-weight: bold;
+  background-color: #ea9085;
+  border: 1px solid #b9cced;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.add-note__button--add:hover {
+  background-color: #e9e2d0;
+}
+
+.note {
+  width: 280px;
+  height: auto;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 5px;
+  border: 1px solid #b9cced;
+  border-radius: 5px;
+}
+
+.note__heading {
+  font-weight: bold;
+}
+
+.note__text {
+  padding: 5px;
+}
+
+.note__heading {
+  border-bottom: 1px solid #b9cced;
+}

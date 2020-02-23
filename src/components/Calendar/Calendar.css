@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .calendar-container,
 .calendar,
 .calendar-header,
@@ -8,101 +12,113 @@ tr {
 }
 
 .calendar-container {
-  border: 2px solid skyblue;
+   border: 1px solid #b9cced;
+   position: relative;
+   width: 280px;
+   border-radius: 5px;
+   margin-top: 10px;
+   margin-bottom: 10px;
 }
 
 .calendar {
-  background-color: white;
-  border-spacing: 0;
-  border-collapse: collapse;
   width: 100%;
 }
 
 .calendar-header {
-  border-bottom: 1px dashed skyblue;
-  font-size: 1.6em;
+  background-color: #b9cced;
+  height: 30px;
+  padding: 0;
 }
 
-.calendar-header td {
-  border-spacing: 0;
-  padding-left: 5px;
+.button-month,
+.button-year {
+  background-color: inherit;
+  border: none;
+  color: #6e5773;
+  cursor: pointer;
 }
 
-.day,
-.empty-slot,
+.button-year {
+  font-weight: bold;
+}
+
+.button-next,
+.button-prev {
+  background-color: inherit;
+  border: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  margin-top: 3px;
+  cursor: pointer;
+  outline: none;
+}
+
+.button-prev {
+  margin-left: 10px;
+}
+
+.button-next::before,
+.button-prev::before {
+  position: absolute;
+  content: '';
+  top: 5px;
+  transform: translateY(-50%);
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #6e5773;
+  border-left: 2px solid #6e5773;
+}
+
+.button-prev::before {
+  transform: rotate(-45deg);
+}
+
+.button-next::before {
+  transform: rotate(135deg);
+}
+
 .week-day {
   text-align: center;
-  height: 40px;
-}
-
-.week-day {
-  font-size: 0.8em;
-}
-
-.day {
-  font-size: 0.8em;
-}
-
-.day {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  line-height: 24px;
-}
-
-.current-day {
-  background-color: #4285f4;
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
-  border-radius: 2%;
-  color: white;
-}
-
-.selected-day {
-  background-color: yellow;
-  width: 28px;
-  height: 28px;
-  line-height: 28px;
-  border-radius: 2%;
-  color: black;
-}
-
-.month-popup {
-  position: absolute;
   padding: 5px;
-  background: white;
-  border: 2px solid skyblue;
+  color: #6e5773;
+  background-color: #ea9085;
 }
 
-.month-popup div {
-  padding: 0.3em;
-}
-
-.nav-month {
-  position: absolute;
-  top: 0.6em;
-  font-size: 0.6em;
-  right: 3px;
-}
-
-.prev {
-  cursor: pointer;
-}
-
-.next {
+.day span {
+  display: block;
+  text-align: center;
+  padding: 5px;
+  color: #6e5773;
   cursor: pointer;
 }
 
 .editor-year {
-  max-width: 3.6em;
+  width: 50px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+  font-weight: bold;
+  color: #6e5773;
 }
 
-.label-month,
-.label-year {
-  font-size: 0.6em;
+.button-month {
+  position: relative;
+  outline: none;
 }
 
-.label-month {
+.month-popup {
+  position: absolute;
+  left: 0;
+  top: 27px;
+  background-color: #b9cced;
+}
+
+.option-month {
+  width: 100%;
+  border: none;
+  background-color: inherit;
   cursor: pointer;
+  color: #6e5773;
 }

@@ -1,16 +1,15 @@
 /* eslint-disable dot-notation */
 import React from 'react';
 import PropTypes from 'prop-types';
-/* import 'bootstrap'; */
+import './TaskList.css';
 
 export const TaskList = ({ todos }) => (
   <table className="table table-bordered">
     <thead>
       <tr>
-        <th>Task ID</th>
-        <th>Task</th>
-        <th>Task description </th>
-        <th>Data</th>
+        <th>#</th>
+        <th>Title</th>
+        <th>Text</th>
       </tr>
     </thead>
     <tbody>
@@ -19,6 +18,12 @@ export const TaskList = ({ todos }) => (
           <th>{todo.taskId}</th>
           <th>{todo.taskTitle}</th>
           <th>{todo.taskDescription}</th>
+          <button
+            className="button-edit"
+            type="button"
+          >
+            EDIT
+          </button>
           <th>{`${todo.dataTodo['_d']}`}</th>
         </tr>
       ))}

@@ -1,0 +1,88 @@
+
+.button__task-creator {
+  display: block;
+  text-align: center;
+  width: 120px;
+  height: 40px;
+  font-size: 15px;
+  margin: 0 auto;
+  color: #6e5773;
+  font-weight: bold;
+  background-color: #ea9085;
+  border: 1px solid #b9cced;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.button__task-creator:hover {
+  background-color: #e9e2d0;
+  color: #6e5773;
+}
+.todo-title,
+.todo-text {
+  display: block;
+  width: 280px;
+  border-radius: 5px;
+  border: 1px solid #b9cced;
+  margin: 0 auto;
+  margin-top: 10px;
+  outline: none;
+  padding: 5px;
+}
+
+.todo-text {
+  height: 100px;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  width: 240px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-save,
+.button-cancel {
+  display: inline-block;
+  text-align: center;
+  width: 100px;
+  height: 30px;
+  font-size: 15px;
+  margin: 0 auto;
+  color: #6e5773;
+  font-weight: bold;
+  background-color: #ea9085;
+  border: 1px solid #b9cced;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.5s ease-in-out;
+}
+
+thead {
+  font-size: 10px;
+}
+
+.button-edit {
+  display: inline-block;
+  text-align: center;
+  width: 50px;
+  height: 20px;
+  font-size: 10px;
+  margin: 0 auto;
+  color: #6e5773;
+  font-weight: bold;
+  background-color: #ea9085;
+  border: 1px solid #b9cced;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.5s ease-in-out;
+}
+
+th {
+  font-size: 10px;
+}
