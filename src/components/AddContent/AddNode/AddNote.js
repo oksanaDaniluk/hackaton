@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import './AddNote.scss';
+import PropTypes from 'prop-types';
 import { NoteList } from './NoteList';
 
 export class AddNote extends Component {
-  state = {
-    noteList: [],
-    title: '',
-    text: '',
-  };
+  constructor(props) {
+    super(props);
 
-  addNote = (note) => {
-    this.setState(prevState => ({
-      noteList: [...prevState.noteList, { ...note }],
-    }));
+    this.state = {
+      title: '',
+      text: '',
+    };
   }
 
   handleInputChange = ({ target }) => {
@@ -36,7 +34,7 @@ export class AddNote extends Component {
 
     const { title, text } = this.state;
 
-    this.addNote({
+    this.props.addNote({
       title,
       text,
     });
@@ -48,7 +46,8 @@ export class AddNote extends Component {
   }
 
   render() {
-    const { title, text, noteList } = this.state;
+    const { title, text } = this.state;
+    const { noteList } = this.props;
 
     return (
       <div className="add-note">
@@ -74,8 +73,20 @@ export class AddNote extends Component {
           Add Note
           </button>
         </form>
-        <NoteList noteList={noteList} />
+        <NoteList
+          noteList={noteList}
+        />
       </div>
     );
   }
 }
+
+AddNote.propTypes = {
+  noteList: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      text: PropTypes.string,
+    }).isRequired,
+  ).isRequired,
+  addNote: PropTypes.func.isRequired,
+};

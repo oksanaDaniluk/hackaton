@@ -7,10 +7,11 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './Calendar.css';
-import { AddTodo } from '../TaskList/AddTodo';
+import { AddNote } from '../AddContent/AddNode/AddNote';
 
 export class Calendar extends Component {
   state = {
+    noteList: [],
     todos: [],
     dateContext: moment(),
     showMonthPopup: false,
@@ -194,6 +195,15 @@ export class Calendar extends Component {
     this.props.onDayClick && this.props.onDayClick(evt, day);
   }
 
+  addNote = (note) => {
+    this.setState(prevState => ({
+      noteList: [...prevState.noteList, {
+        ...note,
+        dateNote: prevState.dateContext,
+      }],
+    }));
+  };
+
   addTodo = (todo) => {
     this.setState(prevState => ({
       todos: [...prevState.todos, {
@@ -292,6 +302,11 @@ export class Calendar extends Component {
             {trElems}
           </tbody>
         </table>
+
+        <AddNote
+          noteList={this.state.noteList}
+          addNote={this.addNote}
+        />
         {
           this.state.isTaskCreator
             ? (
