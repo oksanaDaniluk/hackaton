@@ -7,9 +7,11 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import './Calendar.css';
+import { AddNote } from '../AddContent/AddNode/AddNote';
 
 export class Calendar extends Component {
   state = {
+    noteList: [],
     dateContext: moment(),
     showMonthPopup: false,
   }
@@ -185,6 +187,15 @@ export class Calendar extends Component {
     this.props.onDayClick && this.props.onDayClick(evt, day);
   }
 
+  addNote = (note) => {
+    this.setState(prevState => ({
+      noteList: [...prevState.noteList, {
+        ...note,
+        dateNote: prevState.dateContext,
+      }],
+    }));
+  };
+
   render() {
     const weekdays = this.weekdaysShort.map(day => (
       <td key={day} className="week-day">{day}</td>
@@ -273,6 +284,10 @@ export class Calendar extends Component {
             {trElems}
           </tbody>
         </table>
+        <AddNote
+          noteList={this.state.noteList}
+          addNote={this.addNote}
+        />
       </div>
     );
   }
