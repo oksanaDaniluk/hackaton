@@ -1,3 +1,4 @@
+/* eslint-disable dot-notation */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './TaskList.css';
@@ -23,6 +24,7 @@ export const TaskList = ({ todos }) => (
           >
             EDIT
           </button>
+          <th>{`${todo.dataTodo['_d']}`}</th>
         </tr>
       ))}
     </tbody>
