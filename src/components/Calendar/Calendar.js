@@ -12,8 +12,10 @@ import { AddNote } from '../AddContent/AddNode/AddNote';
 export class Calendar extends Component {
   state = {
     noteList: [],
+    todos: [],
     dateContext: moment(),
     showMonthPopup: false,
+    isTaskCreator: false,
   }
 
   weekdays = moment.weekdays();
@@ -21,6 +23,12 @@ export class Calendar extends Component {
   weekdaysShort = ['Mon', 'Thu', 'Wed', 'Tue', 'Fri', 'Sat', 'Sun'];
 
   months = moment.months();
+
+  loadTaskCreator = () => {
+    this.setState({
+      isTaskCreator: true,
+    });
+  }
 
   year = () => this.state.dateContext.format('Y');
 
@@ -196,10 +204,20 @@ export class Calendar extends Component {
     }));
   };
 
+  addTodo = (todo) => {
+    this.setState(prevState => ({
+      todos: [...prevState.todos, {
+        ...todo,
+        dataTodo: prevState.dateContext,
+      }],
+    }));
+  }
+
   render() {
     const weekdays = this.weekdaysShort.map(day => (
       <td key={day} className="week-day">{day}</td>
     ));
+    const { todos } = this.state;
 
     const blanks = [];
 
@@ -284,10 +302,26 @@ export class Calendar extends Component {
             {trElems}
           </tbody>
         </table>
+
         <AddNote
           noteList={this.state.noteList}
           addNote={this.addNote}
         />
+        {
+          this.state.isTaskCreator
+            ? (
+              <AddTodo todos={todos} addTodo={this.addTodo} />
+            )
+            : (
+              <button
+                className="button button__task-creator"
+                type="button"
+                onClick={this.loadTaskCreator}
+              >
+                Add task
+              </button>
+            )
+        }
       </div>
     );
   }
