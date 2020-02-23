@@ -18,12 +18,6 @@ export const TaskList = ({ todos }) => (
           <th>{todo.taskId}</th>
           <th>{todo.taskTitle}</th>
           <th>{todo.taskDescription}</th>
-          <button
-            className="button-edit"
-            type="button"
-          >
-            EDIT
-          </button>
           <th>{`${todo.dataTodo['_d']}`}</th>
         </tr>
       ))}

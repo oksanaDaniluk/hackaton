@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import './Calendar.css';
 import { AddNote } from '../AddContent/AddNode/AddNote';
+import { AddTodo } from '../TaskList/AddTodo';
 
 export class Calendar extends Component {
   state = {
